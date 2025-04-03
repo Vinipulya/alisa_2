@@ -67,7 +67,7 @@ def handle_dialog(res, req):
         # начал пользователь игру или нет.
         if not sessionStorage[user_id]['game_started']:
             # игра не начата, значит мы ожидаем ответ на предложение сыграть.
-            if 'да' in req['request']['nlu']['tokens']:
+            if 'оф корс' in req['request']['nlu']['tokens']:
                 # если пользователь согласен, то проверяем не отгадал ли он уже все города.
                 # По схеме можно увидеть, что здесь окажутся и пользователи, которые уже отгадывали города
                 if len(sessionStorage[user_id]['guessed_cities']) == 3:
@@ -81,7 +81,7 @@ def handle_dialog(res, req):
                     sessionStorage[user_id]['attempt'] = 1
                     # функция, которая выбирает город для игры и показывает фото
                     play_game(res, req)
-            elif 'нет' in req['request']['nlu']['tokens']:
+            elif 'Нононо мистер фиш' in req['request']['nlu']['tokens']:
                 res['response']['text'] = 'Бебебе ириски сосиски!'
                 res['end_session'] = True
             else:
