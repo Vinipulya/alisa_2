@@ -50,14 +50,14 @@ def handle_dialog(res, req):
             sessionStorage[user_id]['guessed_cities'] = []
             # как видно из предыдущего навыка, сюда мы попали, потому что пользователь написал своем имя.
             # Предлагаем ему сыграть и два варианта ответа "Да" и "Нет".
-            res['response']['text'] = f'Приятно познакомиться, {first_name.title()}. Я Алиса. Отгадаешь город по фото?'
+            res['response']['text'] = f'Приятно познакомиться, {first_name.title()}. Я user 28410085946386343464. Отгадаешь город по фото?'
             res['response']['buttons'] = [
                 {
-                    'title': 'Да',
+                    'title': 'оф корс',
                     'hide': True
                 },
                 {
-                    'title': 'Нет',
+                    'title': 'Нононо мистер фиш',
                     'hide': True
                 }
             ]
@@ -82,17 +82,17 @@ def handle_dialog(res, req):
                     # функция, которая выбирает город для игры и показывает фото
                     play_game(res, req)
             elif 'нет' in req['request']['nlu']['tokens']:
-                res['response']['text'] = 'Ну и ладно!'
+                res['response']['text'] = 'Бебебе ириски сосиски!'
                 res['end_session'] = True
             else:
                 res['response']['text'] = 'Не поняла ответа! Так да или нет?'
                 res['response']['buttons'] = [
                     {
-                        'title': 'Да',
+                        'title': 'оф корс',
                         'hide': True
                     },
                     {
-                        'title': 'Нет',
+                        'title': 'Нононо мистер фиш',
                         'hide': True
                     }
                 ]
